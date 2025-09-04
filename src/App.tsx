@@ -37,6 +37,13 @@ const App = () => (
               <Route path="/auth/login" element={<Login />} />
               <Route path="/auth/register" element={<Register />} />
               
+              {/* Demo Routes - No Auth Required */}
+              <Route path="/demo/training" element={<TrainingModule trainingId="demo-training" />} />
+              <Route path="/demo/shop" element={<Shop />} />
+              <Route path="/demo/report" element={<ReportForm />} />
+              <Route path="/demo/map" element={<MapLocator />} />
+              <Route path="/demo/dashboard" element={<Dashboard />} />
+              
               {/* Protected Routes */}
               <Route path="/dashboard" element={
                 <ProtectedRoute>

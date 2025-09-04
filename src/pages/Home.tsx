@@ -92,23 +92,41 @@ const Home: React.FC = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <Card key={index} className="card-elevated hover:shadow-glow transition-all duration-300 group">
-                <CardHeader>
-                  <div className="w-16 h-16 bg-gradient-primary rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                    <div className="text-white">
-                      {feature.icon}
-                    </div>
-                  </div>
-                  <CardTitle className="text-xl">{feature.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription className="text-base leading-relaxed">
-                    {feature.description}
-                  </CardDescription>
-                </CardContent>
-              </Card>
-            ))}
+            {features.map((feature, index) => {
+              const demoRoutes = [
+                '/demo/report',
+                '/demo/training', 
+                '/demo/map',
+                '/demo/shop',
+                '/demo/dashboard',
+                '/demo/dashboard'
+              ];
+              
+              return (
+                <Link key={index} to={demoRoutes[index]} className="block">
+                  <Card className="card-elevated hover:shadow-glow transition-all duration-300 group cursor-pointer">
+                    <CardHeader>
+                      <div className="w-16 h-16 bg-gradient-primary rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                        <div className="text-white">
+                          {feature.icon}
+                        </div>
+                      </div>
+                      <CardTitle className="text-xl">{feature.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-base leading-relaxed">
+                        {feature.description}
+                      </CardDescription>
+                      <div className="mt-4">
+                        <Button variant="outline" size="sm" className="w-full">
+                          Try Demo <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
